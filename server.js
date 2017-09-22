@@ -27,9 +27,9 @@ app.use((req, res, next) => {
     console.log(log);
     next();
 });
-app.use((req, res, next) => {
+/*app.use((req, res, next) => {
     res.render('maintainance');
-});
+});*/
 
 app.get('/', (req, res) => {
 	res.send({name: 'Rahul'
@@ -49,6 +49,14 @@ app.get('/home',(req, res) => {
 		welcomeMessage: 'Welcome to my Website!!'
 	})
 });
+
+app.get('/projects', (req,res) => {
+    res.render('projects',{
+        pageTitle: 'Projects',
+        projects: 'Node-course'
+    });
+});
+
 app.listen(port, () => {
     console.log('Server is up at port ', port);
 });
